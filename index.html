@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASHNESH TRADE INDIA PRIVATE LIMITED | Professional E-commerce Operations Service Provider</title>
+    <meta name="description" content="ASHNESH TRADE INDIA PRIVATE LIMITED - Specialising in e-commerce platform management, data analytics, and brand incubation. Based in the UK, dedicated to providing comprehensive e-commerce solutions for businesses.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        /* --- Global Variables & Reset --- */
+        :root {
+            --primary: #0F172A; /* Deep Midnight Blue */
+            --secondary: #F59E0B; /* Amber Orange */
+            --accent: #3B82F6; /* Tech Blue */
+            --text-dark: #1E293B;
+            --text-gray: #64748B;
+            --light-bg: #F8FAFC;
+            --white: #FFFFFF;
+            --glass: rgba(255, 255, 255, 0.9);
+            --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; object-fit: cover; }
+
+        /* --- Animation Classes --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Common Components --- */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding { padding: 80px 0; }
+        .bg-light { background-color: var(--light-bg); }
+        .bg-dark { background-color: var(--primary); color: var(--white); }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+        .bg-dark .section-title h2 { color: var(--white); }
+        .section-title p {
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .section-title .line {
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4); }
+        
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* --- 1. Header Navigation --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo i { color: var(--secondary); }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a { font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { color: var(--secondary); }
+        .header-cta { display: flex; gap: 16px; align-items: center; }
+
+        /* --- 2. Hero Section --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7)), url('https://picsum.photos/id/3/1920/1080');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            position: relative;
+        }
+        .hero-content { max-width: 800px; }
+        .hero h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 24px; font-weight: 800; }
+        .hero p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 40px; }
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 30px;
+        }
+        .stat-item strong { display: block; font-size: 2rem; color: var(--secondary); }
+        .stat-item span { font-size: 0.9rem; opacity: 0.8; }
+
+        /* --- 3. Core Benefits Bar (Ticker) --- */
+        .features-bar {
+            background: var(--white);
+            transform: translateY(-50%);
+            box-shadow: var(--shadow);
+            border-radius: 8px;
+            padding: 30px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            position: relative;
+            z-index: 10;
+        }
+        .fb-item { text-align: center; }
+        .fb-item i { font-size: 2rem; color: var(--accent); margin-bottom: 15px; }
+        .fb-item h4 { font-weight: 700; margin-bottom: 5px; }
+
+        /* --- 4. About Us --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .about-img {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .about-img img { width: 100%; border-radius: 20px; transition: transform 0.5s; }
+        .about-img:hover img { transform: scale(1.05); }
+        .about-badge {
+            position: absolute;
+            bottom: 30px;
+            right: -20px;
+            background: var(--secondary);
+            padding: 20px;
+            color: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        /* --- 5. Core Services --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            transition: var(--transition);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+            border-color: var(--secondary);
+        }
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 24px;
+        }
+        .service-card:hover .service-icon { background: var(--secondary); color: var(--white); }
+
+        /* --- 6. Data Visualisation Section --- */
+        .data-section {
+            background: var(--primary);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        .data-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        .data-visual {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* --- 7. Live Shopping & Influencer Marketing --- */
+        .live-commerce {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 0;
+            border-radius: 30px;
+            overflow: hidden;
+            background: #fff0e6; /* Light orange background */
+        }
+        .live-text { padding: 60px; display: flex; flex-direction: column; justify-content: center; }
+        .live-img { height: 100%; min-height: 400px; }
+        .live-img img { height: 100%; width: 100%; object-fit: cover; }
+
+        /* --- 8. Our Process --- */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #e2e8f0;
+            z-index: 0;
+        }
+        .step-item {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            background: var(--light-bg);
+            padding: 0 10px;
+            flex: 1;
+        }
+        .step-num {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            line-height: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* --- 9. Case Studies --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .portfolio-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 300px;
+            group: group;
+        }
+        .portfolio-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+        }
+        .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+
+        /* --- 10. Team Introduction --- */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        .team-member { text-align: center; }
+        .team-avatar {
+            width: 150px; height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border: 4px solid var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        /* --- 11. Platform Partners (Logo Wall) --- */
+        .partners-wrap {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 40px;
+            opacity: 0.6;
+        }
+        .partner-logo { font-size: 2rem; display: flex; align-items: center; gap: 10px; font-weight: bold; }
+
+        /* --- 12. Testimonials --- */
+        .testimonial-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            font-style: italic;
+        }
+
+        /* --- 13. FAQ --- */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .faq-item h4 { margin-bottom: 10px; color: var(--primary); }
+
+        /* --- 14. Careers & Culture --- */
+        .culture-section {
+            background: url('https://picsum.photos/id/60/1920/600') fixed;
+            background-size: cover;
+            position: relative;
+            color: var(--white);
+            text-align: center;
+        }
+        .culture-overlay {
+            background: rgba(15, 23, 42, 0.8);
+            padding: 100px 0;
+        }
+
+        /* --- 15. Contact Us --- */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 0;
+            background: var(--white);
+            box-shadow: var(--shadow);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .contact-info-box {
+            background: var(--primary);
+            color: var(--white);
+            padding: 60px 40px;
+        }
+        .contact-detail {
+            margin-bottom: 30px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        .contact-detail i { color: var(--secondary); margin-top: 5px; }
+        .map-box { height: 100%; min-height: 400px; background: #eee; position: relative;}
+        .map-placeholder {
+            width: 100%; height: 100%;
+            background-image: url('https://picsum.photos/id/238/800/600'); /* Simulated map */
+            background-size: cover;
+            display: flex; justify-content: center; align-items: center;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #020617;
+            color: #94a3b8;
+            padding: 80px 0 30px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        .footer-brand h3 { color: var(--white); margin-bottom: 20px; }
+        .footer-links h4 { color: var(--white); margin-bottom: 20px; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a:hover { color: var(--secondary); }
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            font-size: 0.9rem;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .features-bar, .about-grid, .data-content, .live-commerce, .contact-wrapper, .footer-grid, .portfolio-grid, .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .features-bar { transform: none; margin: 20px 0; }
+            .nav-links { display: none; } /* Mobile simplification */
+            .process-steps { flex-direction: column; gap: 30px; }
+            .process-steps::before { width: 2px; height: 100%; left: 25px; top: 0; }
+            .step-item { text-align: left; padding-left: 70px; }
+            .step-num { position: absolute; left: 0; margin: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-content">
+            <a href="#" class="logo">
+                <i class="fas fa-layer-group"></i> ASHNESH TRADE INDIA
+            </a>
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#services">Services</a>
+                <a href="#process">Our Process</a>
+                <a href="#portfolio">Case Studies</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="header-cta">
+                <span style="font-weight:bold; color:var(--primary)">8320995778</span>
+                <a href="#contact" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">Free Consultation</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content reveal">
+                <h1 style="margin-bottom: 10px; font-size: 1.3em;">ASHNESH TRADE INDIA PRIVATE LIMITED</h1>
+                <h1>Empowering UK Brands<br>Through Digital Commerce</h1>
+                <p>We help businesses achieve exponential growth across Amazon, eBay, Shopify, and TikTok UK through data-driven strategies and expert e-commerce management. Your trusted multi-channel retail partner.</p>
+                <a href="#contact" class="btn btn-primary">Start Your Growth Journey <i class="fas fa-arrow-right"></i></a>
+                <a href="#services" class="btn btn-outline" style="border-color:white; color:white; margin-left: 15px;">Explore Services</a>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <strong>8+</strong>
+                        <span>Years of Expertise</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>500+</strong>
+                        <span>Brands Supported</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>£12M+</strong>
+                        <span>Revenue Generated</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="features-bar reveal">
+            <div class="fb-item">
+                <i class="fas fa-chart-line"></i>
+                <h4>ROI Optimisation</h4>
+                <p>Average 45% improvement in return on ad spend</p>
+            </div>
+            <div class="fb-item">
+                <i class="fas fa-users-cog"></i>
+                <h4>Expert Team</h4>
+                <p>50+ certified e-commerce specialists</p>
+            </div>
+            <div class="fb-item">
+                <i class="fas fa-stopwatch"></i>
+                <h4>Rapid Response</h4>
+                <p>7 days a week support availability</p>
+            </div>
+            <div class="fb-item">
+                <i class="fas fa-shield-alt"></i>
+                <h4>Risk Management</h4>
+                <p>Platform compliance & policy protection</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <h5 style="color:var(--secondary); font-weight:700; margin-bottom:10px;">ABOUT US</h5>
+                    <h2 style="font-size:2.5rem; margin-bottom:20px; color:var(--primary);">ASHNESH TRADE INDIA PRIVATE LIMITED</h2>
+                    <p style="margin-bottom:20px; color:var(--text-gray);">
+                        As a leading UK-based e-commerce consultancy, ASHNESH TRADE INDIA PRIVATE LIMITED is not merely your service provider—we are your strategic business partner. Headquartered in the United Kingdom, we specialise in connecting quality products with consumers nationwide.
+                    </p>
+                    <p style="margin-bottom:30px; color:var(--text-gray);">
+                        Our multidisciplinary team comprises senior account managers, data analysts, visual designers, and live commerce specialists. We possess extensive experience in both launching brands from inception and scaling established businesses to new heights.
+                    </p>
+                    <ul style="display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-bottom:30px;">
+                        <li><i class="fas fa-check-circle" style="color:var(--secondary)"></i> Localised UK Market Expertise</li>
+                        <li><i class="fas fa-check-circle" style="color:var(--secondary)"></i> End-to-End Resource Integration</li>
+                        <li><i class="fas fa-check-circle" style="color:var(--secondary)"></i> Performance-Based Pricing</li>
+                        <li><i class="fas fa-check-circle" style="color:var(--secondary)"></i> Long-Term Brand Equity Building</li>
+                    </ul>
+                </div>
+                <div class="about-img reveal">
+                    <img src="https://picsum.photos/id/1/600/500" alt="Office Environment">
+                    <div class="about-badge">
+                        <span style="font-size:1.5rem; font-weight:800;">Top 10</span><br>UK E-commerce Excellence Award
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Comprehensive E-commerce Solutions</h2>
+                <p>Full-service management across all major UK and international platforms</p>
+                <div class="line"></div>
+            </div>
+            
+            <div class="services-grid reveal">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-store"></i></div>
+                    <h3>Marketplace Management</h3>
+                    <p style="color:var(--text-gray); margin-top:10px;">Complete Amazon, eBay, Etsy, and Shopify store management including product listing optimisation, SEO, promotional campaigns, and daily operations.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-video"></i></div>
+                    <h3>Live Shopping & Influencer Marketing</h3>
+                    <p style="color:var(--text-gray); margin-top:10px;">TikTok Shop and Instagram live commerce setup, influencer partnerships, content strategy, and traffic acquisition for high-conversion shopping experiences.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                    <h3>Visual Design & Photography</h3>
+                    <p style="color:var(--text-gray); margin-top:10px;">Product photography, lifestyle imagery, A+ content creation, and brand identity development. Compelling visual storytelling that drives click-through and conversion rates.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-search-dollar"></i></div>
+                    <h3>Precision Paid Advertising</h3>
+                    <p style="color:var(--text-gray); margin-top:10px;">Amazon PPC, Google Shopping, Facebook Ads, and TikTok advertising specialists. Advanced audience targeting ensuring maximum return on every pound spent.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-headset"></i></div>
+                    <h3>Customer Service Excellence</h3>
+                    <p style="color:var(--text-gray); margin-top:10px;">Professional customer support team available 7 days a week. Enhancing response times, improving conversion rates, and minimising post-purchase disputes.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-truck-loading"></i></div>
+                    <h3>Supply Chain & Fulfilment Consulting</h3>
+                    <p style="color:var(--text-gray); margin-top:10px;">Inventory management optimisation, shipping process improvement, and 3PL partnerships. Reducing fulfilment costs while maintaining exceptional delivery standards.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-chart-pie"></i></div>
+                    <h3>Data Analytics & Reporting</h3>
+                    <p style="color:var(--text-gray); margin-top:10px;">Comprehensive business intelligence through advanced analytics tools. Weekly performance reports, competitor analysis, and actionable growth recommendations.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-globe-europe"></i></div>
+                    <h3>International Expansion</h3>
+                    <p style="color:var(--text-gray); margin-top:10px;">Cross-border e-commerce strategy, EU market entry guidance, multi-language localisation, and international logistics coordination.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="live-commerce reveal">
+                <div class="live-text">
+                    <h3 style="color:var(--secondary); text-transform:uppercase; letter-spacing:2px; font-size:0.9rem;">Social Commerce</h3>
+                    <h2 style="font-size:2.2rem; margin:15px 0 20px; color:var(--primary);">Live Shopping & Influencer Partnerships</h2>
+                    <p style="color:var(--text-gray); margin-bottom:30px;">
+                        In today's fragmented media landscape, we help traditional brands transition to social commerce. Through integrated short-form video marketing and live shopping experiences, we deliver exponential sales growth. Our state-of-the-art studio facilities feature professional lighting and broadcasting equipment.
+                    </p>
+                    <div style="display:flex; gap:30px;">
+                        <div>
+                            <h4 style="font-size:1.5rem; color:var(--primary); font-weight:800;">50+</h4>
+                            <p style="font-size:0.9rem;">Partner Influencers</p>
+                        </div>
+                        <div>
+                            <h4 style="font-size:1.5rem; color:var(--primary); font-weight:800;">1000h+</h4>
+                            <p style="font-size:0.9rem;">Monthly Live Broadcasts</p>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-primary" style="margin-top:40px; width:fit-content;">Book Studio Visit</a>
+                </div>
+                <div class="live-img">
+                    <img src="https://picsum.photos/id/250/800/800" alt="Live Shopping Studio">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding data-section">
+        <div class="container">
+            <div class="data-content reveal">
+                <div>
+                    <h2 style="font-size:2.5rem; margin-bottom:20px;">Data-Driven Insights,<br>Precise Decision Making</h2>
+                    <p style="opacity:0.8; margin-bottom:30px; font-size:1.1rem;">
+                        We don't rely on intuition—we leverage Amazon Brand Analytics, Google Analytics 4, Meta Business Suite, and advanced BI tools for comprehensive market intelligence.
+                    </p>
+                    <ul style="line-height:2.5;">
+                        <li><i class="fas fa-chart-pie" style="margin-right:10px; color:var(--secondary);"></i> Competitor monitoring and market analysis</li>
+                        <li><i class="fas fa-chart-area" style="margin-right:10px; color:var(--secondary);"></i> Precision customer profiling and segmentation</li>
+                        <li><i class="fas fa-chart-bar" style="margin-right:10px; color:var(--secondary);"></i> Full-funnel conversion optimisation</li>
+                    </ul>
+                </div>
+                <div class="data-visual">
+                    <img src="https://picsum.photos/id/0/600/400" style="border-radius:10px; width:100%; opacity:0.9;" alt="Analytics Dashboard">
+                    <div style="margin-top:20px; display:flex; justify-content:space-between; font-family:monospace;">
+                        <span>Traffic: <span style="color:#4ade80">▲ 24%</span></span>
+                        <span>Conv. Rate: <span style="color:#4ade80">▲ 3.5%</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Our Structured Approach</h2>
+                <p>Transparent methodology with visible progress at every stage</p>
+                <div class="line"></div>
+            </div>
+            
+            <div class="process-steps reveal">
+                <div class="step-item">
+                    <div class="step-num">1</div>
+                    <h3>Comprehensive Audit</h3>
+                    <p style="font-size:0.9rem; color:var(--text-gray); margin-top:10px;">In-depth analysis of your current operations, identifying pain points and growth opportunities.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">2</div>
+                    <h3>Strategic Planning</h3>
+                    <p style="font-size:0.9rem; color:var(--text-gray); margin-top:10px;">Bespoke roadmaps, product strategies, and advertising budget allocation tailored to your objectives.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">3</div>
+                    <h3>Expert Execution</h3>
+                    <p style="font-size:0.9rem; color:var(--text-gray); margin-top:10px;">Visual enhancement, product launches, campaign management, and promotional event coordination.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">4</div>
+                    <h3>Review & Optimise</h3>
+                    <p style="font-size:0.9rem; color:var(--text-gray); margin-top:10px;">Weekly and monthly performance reviews with continuous strategy refinement for sustained growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="section-padding">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Featured Case Studies</h2>
+                <p>Results that speak for themselves—witness brand transformations</p>
+                <div class="line"></div>
+            </div>
+            
+            <div class="portfolio-grid reveal">
+                <div class="portfolio-item">
+                    <img src="https://picsum.photos/id/20/400/300" alt="Stationery Brand Case Study">
+                    <div class="portfolio-overlay">
+                        <h3>Premium Stationery Brand</h3>
+                        <p>Monthly revenue grew from £5K to £300K</p>
+                        <span style="margin-top:10px; font-size:0.8rem; border:1px solid white; padding:5px 10px; border-radius:20px;">Amazon Management</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://picsum.photos/id/102/400/300" alt="Artisan Foods Case Study">
+                    <div class="portfolio-overlay">
+                        <h3>British Artisan Foods</h3>
+                        <p>Created best-selling product lines</p>
+                        <span style="margin-top:10px; font-size:0.8rem; border:1px solid white; padding:5px 10px; border-radius:20px;">eBay Operations</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://picsum.photos/id/175/400/300" alt="Beauty Brand Case Study">
+                    <div class="portfolio-overlay">
+                        <h3>Indie Beauty Brand</h3>
+                        <p>Single TikTok live session achieved £100K+ in sales</p>
+                        <span style="margin-top:10px; font-size:0.8rem; border:1px solid white; padding:5px 10px; border-radius:20px;">Live Commerce</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://picsum.photos/id/366/400/300" alt="Home Décor Case Study">
+                    <div class="portfolio-overlay">
+                        <h3>Creative Home & Living</h3>
+                        <p>Complete visual overhaul driving 180% conversion increase</p>
+                        <span style="margin-top:10px; font-size:0.8rem; border:1px solid white; padding:5px 10px; border-radius:20px;">Visual Design</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://picsum.photos/id/445/400/300" alt="Tech Accessories Case Study">
+                    <div class="portfolio-overlay">
+                        <h3>Consumer Electronics</h3>
+                        <p>Amazon PPC ROI improved to 1:8</p>
+                        <span style="margin-top:10px; font-size:0.8rem; border:1px solid white; padding:5px 10px; border-radius:20px;">Paid Advertising</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://picsum.photos/id/119/400/300" alt="Fashion Brand Case Study">
+                    <div class="portfolio-overlay">
+                        <h3>Contemporary Menswear</h3>
+                        <p>From launch to market leader in 6 months</p>
+                        <span style="margin-top:10px; font-size:0.8rem; border:1px solid white; padding:5px 10px; border-radius:20px;">Brand Incubation</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://picsum.photos/id/225/400/300" alt="Pet Supplies Case Study">
+                    <div class="portfolio-overlay">
+                        <h3>Premium Pet Care Brand</h3>
+                        <p>Expanded to 5 European markets within 12 months</p>
+                        <span style="margin-top:10px; font-size:0.8rem; border:1px solid white; padding:5px 10px; border-radius:20px;">Cross-Border Expansion</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://picsum.photos/id/305/400/300" alt="Fitness Equipment Case Study">
+                    <div class="portfolio-overlay">
+                        <h3>Home Fitness Solutions</h3>
+                        <p>Achieved #1 Best Seller ranking in fitness category</p>
+                        <span style="margin-top:10px; font-size:0.8rem; border:1px solid white; padding:5px 10px; border-radius:20px;">Shopify Management</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://picsum.photos/id/420/400/300" alt="Organic Skincare Case Study">
+                    <div class="portfolio-overlay">
+                        <h3>Organic Skincare Line</h3>
+                        <p>Built engaged community of 100K+ Instagram followers</p>
+                        <span style="margin-top:10px; font-size:0.8rem; border:1px solid white; padding:5px 10px; border-radius:20px;">Social Media Marketing</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align:center; margin-top:40px;">
+                <a href="#" class="btn btn-outline">View More Success Stories</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-light">
+        <div class="container">
+            <p style="text-align:center; color:var(--text-gray); margin-bottom:30px; letter-spacing:1px;">PLATFORM PARTNERS</p>
+            <div class="partners-wrap reveal">
+                <div class="partner-logo"><i class="fab fa-amazon" style="color:#FF9900"></i> Amazon</div>
+                <div class="partner-logo"><i class="fab fa-ebay" style="color:#E53238"></i> eBay</div>
+                <div class="partner-logo"><i class="fab fa-shopify" style="color:#96BF48"></i> Shopify</div>
+                <div class="partner-logo"><i class="fab fa-tiktok" style="color:#000000"></i> TikTok UK</div>
+                <div class="partner-logo"><i class="fab fa-etsy" style="color:#F1641E"></i> Etsy</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Leadership Team</h2>
+                <p>Our specialists bring 5+ years of frontline e-commerce expertise</p>
+                <div class="line"></div>
+            </div>
+            <div class="team-grid reveal">
+                <div class="team-member">
+                    <div class="team-avatar"><img src="https://picsum.photos/id/1005/200/200" alt="CEO"></div>
+                    <h4>James Wilson</h4>
+                    <p style="color:var(--text-gray); font-size:0.9rem;">Founder & CEO / 10+ Years E-commerce Veteran</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-avatar"><img src="https://picsum.photos/id/1011/200/200" alt="Director"></div>
+                    <h4>Sarah Thompson</h4>
+                    <p style="color:var(--text-gray); font-size:0.9rem;">Operations Director / Growth Strategy Expert</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-avatar"><img src="https://picsum.photos/id/1027/200/200" alt="Manager"></div>
+                    <h4>Oliver Davies</h4>
+                    <p style="color:var(--text-gray); font-size:0.9rem;">PPC Specialist / Traffic Acquisition Lead</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-avatar"><img src="https://picsum.photos/id/338/200/200" alt="Designer"></div>
+                    <h4>Emma Richardson</h4>
+                    <p style="color:var(--text-gray); font-size:0.9rem;">Creative Director / Visual Brand Strategist</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Client Testimonials</h2>
+            </div>
+            <div class="services-grid reveal">
+                <div class="testimonial-card">
+                    <p>"ASHNESH TRADE INDIA PRIVATE LIMITED demonstrated exceptional professionalism. Within three months of engagement, our website traffic quadrupled. Their data-driven approach helped us avoid costly mistakes and accelerate growth."</p>
+                    <div style="margin-top:20px; font-weight:bold; font-style:normal;">— Richard Collins, Managing Director, Premium Foods Ltd</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Outstanding service with excellent communication throughout. They not only managed our marketplace operations but also provided invaluable guidance on product packaging optimisation. A truly dedicated partner."</p>
+                    <div style="margin-top:20px; font-weight:bold; font-style:normal;">— Victoria Hayes, Founder, British Heritage Goods</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Professional expertise is essential for TikTok Shop success—our self-directed efforts yielded minimal results until partnering with their team. The coordination between their hosts and our brand is seamless. Highly recommended!"</p>
+                    <div style="margin-top:20px; font-weight:bold; font-style:normal;">— Daniel Brooks, Creative Director, Contemporary Fashion House</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-grid reveal">
+                <div class="faq-item">
+                    <h4>Q: Which e-commerce platforms do you specialise in?</h4>
+                    <p style="color:var(--text-gray)">A: We primarily focus on Amazon UK, eBay, Shopify, TikTok Shop, Etsy, and social commerce via Instagram and Facebook. We also provide guidance on EU marketplace expansion.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Q: What is your pricing structure?</h4>
+                    <p style="color:var(--text-gray)">A: We typically operate on a "base retainer + performance commission" model. This aligns our interests with yours—sharing both risks and rewards for optimal outcomes.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Q: Can you work with newly established businesses?</h4>
+                    <p style="color:var(--text-gray)">A: Absolutely. We offer a specialised "Launch Accelerator" programme covering everything from platform onboarding through to your first sale and beyond.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Q: How quickly can we expect to see results?</h4>
+                    <p style="color:var(--text-gray)">A: Following initial optimisation, most clients observe noticeable traffic improvements within the first month. Product launch campaigns typically require 1-3 months to reach full momentum.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Q: Do you provide services for international brands entering the UK market?</h4>
+                    <p style="color:var(--text-gray)">A: Yes, we specialise in UK market entry strategies including regulatory compliance, localisation, VAT registration guidance, and building relationships with UK logistics providers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="culture-section">
+        <div class="culture-overlay">
+            <div class="container reveal">
+                <h2>Join Our Growing Team</h2>
+                <p style="margin:20px 0 40px; font-size:1.1rem;">We're seeking passionate, innovative e-commerce professionals. If you're enthusiastic about digital retail, we'd love to hear from you!</p>
+                <a href="#contact" class="btn btn-outline" style="color:white; border-color:white;">View Current Opportunities</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Get In Touch</h2>
+                <p>We look forward to discussing your bespoke e-commerce strategy</p>
+                <div class="line"></div>
+            </div>
+            
+            <div class="contact-wrapper reveal">
+                <div class="contact-info-box">
+                    <h3 style="font-size:1.8rem; margin-bottom:30px;">Let's Talk</h3>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt fa-lg"></i>
+                        <div>
+                            <h5 style="margin-bottom:5px;">Office Address</h5>
+                            <p style="opacity:0.8;">D-288-89/10, CHAMBER NO-328, 3RD FLOOR, NEAR LAXMI NAGAR METRO STATION GATE NO. 1, VIKAS MARG</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-phone-alt fa-lg"></i>
+                        <div>
+                            <h5 style="margin-bottom:5px;">Enquiries</h5>
+                            <p style="opacity:0.8; font-size:1.2rem; font-weight:bold;">8320995778</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope fa-lg"></i>
+                        <div>
+                            <h5 style="margin-bottom:5px;">Email</h5>
+                            <p style="opacity:0.8;">contact@ashneshtradeindia.bond</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:50px;">
+                        <p style="margin-bottom:15px;">Follow Us:</p>
+                        <div style="display:flex; gap:15px;">
+                            <a href="#" style="font-size:1.5rem;" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" style="font-size:1.5rem;" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" style="font-size:1.5rem;" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" style="font-size:1.5rem;" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="map-box">
+                    <div class="map-placeholder">
+                        <div style="background:rgba(255,255,255,0.9); padding:20px; border-radius:10px; text-align:center;">
+                            <i class="fas fa-map-marked-alt" style="font-size:3rem; color:var(--primary);"></i>
+                            <p style="margin-top:10px; font-weight:bold; color:var(--primary);">ASHNESH TRADE INDIA PRIVATE LIMITED</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>ASHNESH TRADE INDIA PRIVATE LIMITED</h3>
+                    <p style="font-size:0.9rem; line-height:1.8; margin-bottom:20px;">
+                        Dedicated to providing comprehensive e-commerce solutions for brands. From strategic planning to execution, from data analytics to creative development, we strive to be your trusted commercial partner.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#">Marketplace Management</a></li>
+                        <li><a href="#">Live Commerce</a></li>
+                        <li><a href="#">Visual Design</a></li>
+                        <li><a href="#">Data Analytics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>8320995778</li>
+                        <li>contact@ashneshtradeindia.bond</li>
+                        <li>D-288-89/10, CHAMBER NO-328, 3RD FLOOR, NEAR LAXMI NAGAR METRO STATION GATE NO. 1, VIKAS MARG</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 ASHNESH TRADE INDIA PRIVATE LIMITED. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Reveal Animation Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                const elementVisible = 100;
+
+                reveals.forEach((reveal) => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveal.classList.add('active');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', revealOnScroll);
+            // Trigger on initial load
+            revealOnScroll();
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
